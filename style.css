@@ -78,3 +78,16 @@
     background: #a4cea3;
     margin: 5px 0;
   }
+  #users-table {
+    width: 100%;
+    display: none;
+    border-collapse: collapse;
+  }
+  #users-table td, #users-table th {
+    border: 1px solid red
+  }
+  
+
+ #users-table tr:nth-child(even) {
+  background-color: gold;
+ }

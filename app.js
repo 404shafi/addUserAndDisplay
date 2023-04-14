@@ -3,7 +3,8 @@ const form = document.querySelector("#my-form");
 const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");
 const msg = document.querySelector(".msg");
-const userList = document.querySelector("#users");
+// const userList = document.querySelector("#users");
+const userList = document.querySelector("#users-table");
 
 form.addEventListener("submit", onSubmit); // form submission handler
 
@@ -25,11 +26,19 @@ function onSubmit(e) {
   }
 
   // create a list item using name and email inputs
-  const li = document.createElement("li");
+  /*   const li = document.createElement("li");
   li.classList.add("item");
   li.innerHTML = `<li>Name: ${userName},,,,, Email: ${userEmail}`;
-  userList.appendChild(li);
-  clearInputs(); // clear input field after submission
+  userList.appendChild(li); */
+
+  // add item to the table
+  userList.style.display = "block";
+  const tr = document.createElement("tr");
+  tr.innerHTML = `<td>${userName}</td><td>${userEmail}</td>`;
+  userList.appendChild(tr);
+
+  // clear input field after submission
+  clearInputs();
 }
 
 // function to clear input fields
