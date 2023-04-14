@@ -23,9 +23,8 @@
   
   .container {
     margin: auto;
-    max-width: 500px;
-    overflow: auto;
-    padding: 3rem 1rem;
+    width: 80%;
+    /* overflow: auto; */
   }
   
   #my-form {
@@ -78,16 +77,21 @@
     background: #a4cea3;
     margin: 5px 0;
   }
-  #users-table {
+  .users-table {
+    table-layout: fixed;
     width: 100%;
-    display: none;
     border-collapse: collapse;
   }
-  #users-table td, #users-table th {
-    border: 1px solid red
+  .users-table th, td {
+    border: 1px solid red;
+    word-wrap: break-word;
+    white-space: initial;
+    width: 50%;
+    padding: .4rem;
   }
-  
-
- #users-table tr:nth-child(even) {
-  background-color: gold;
- }
+  .header {
+    background-color: yellow;
+  }
+  .users-table tr:nth-child(even) {
+    background-color: #b87878;
+  }

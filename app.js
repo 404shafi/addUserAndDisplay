@@ -4,7 +4,7 @@ const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");
 const msg = document.querySelector(".msg");
 // const userList = document.querySelector("#users");
-const userList = document.querySelector("#users-table");
+const userList = document.querySelector(".users-table");
 
 form.addEventListener("submit", onSubmit); // form submission handler
 
@@ -32,11 +32,33 @@ function onSubmit(e) {
   userList.appendChild(li); */
 
   // add item to the table
-  userList.style.display = "block";
-  const tr = document.createElement("tr");
-  tr.innerHTML = `<td>${userName}</td><td>${userEmail}</td>`;
-  userList.appendChild(tr);
-
+  if (!userList.hasChildNodes()) {
+    const thead = document.createElement("thead");
+    thead.innerHTML = `
+    <tr class='header'>
+      <th>Name</th>
+      <th>Email</th>
+    `;
+    userList.appendChild(thead);
+  }
+  if (userList.querySelector("tbody") === null) {
+    const tbody = document.createElement("tbody");
+    tbody.innerHTML = `
+    <tr>
+      <th>${userName}</th>
+      <th>${userEmail}</th>
+    `;
+    userList.appendChild(tbody);
+  } else if (userList.querySelector("tbody")) {
+    const tbody = document.querySelector("tbody");
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+    <tr>
+      <th>${userName}</th>
+      <th>${userEmail}</th>
+    `;
+    tbody.appendChild(tr);
+  }
   // clear input field after submission
   clearInputs();
 }
